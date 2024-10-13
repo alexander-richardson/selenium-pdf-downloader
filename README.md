@@ -16,7 +16,7 @@ Easily automate the process of logging into a website, downloading multiple PDF 
 
 - Python 3.x
 - [Chrome Browser](https://www.google.com/chrome/) (ensure that the Chrome version matches ChromeDriver)
-- [ChromeDriver]([https://sites.google.com/a/chromium.org/chromedriver/downloads](https://developer.chrome.com/docs/chromedriver/downloads))
+- [ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads)
 
 ### 2. Install Dependencies
 
