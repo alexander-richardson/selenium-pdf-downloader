@@ -50,7 +50,7 @@ Once everything is set up, run the following command in your terminal:
 ## ⚠️ Troubleshooting
 
 ## Drupal Login Error
-The first times this run I will usuall encounter the following drupal error {"message":"An exception occurred login user: Error on login user in Drupal: Admin user alexander.richardson@opensesame.com attempted to log into cached site."}. 
+The first times this run I will usuall encounter the following drupal error {"message":"An exception occurred login user: Error on login user in Drupal: Admin user X attempted to log into cached site."}. 
 
 Clearing the cache and running again will resolve this.
 
