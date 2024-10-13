@@ -31,11 +31,12 @@ Place chromedriver.exe in the same directory as this script (or adjust the scrip
 
 4. Configure PDF URLs
 Inside pdf_urls.py, list the URLs of the PDFs you want to download like this:
+- You will need to adjust the URL from the activity to include "fl" after the opensesame domain. PDF URLS will need to have this inserted for the script to run correctly
 
 ```bash
 pdf_urls = [
-    "https://csr.opensesame.com/completion_certificate/your_first_pdf_url",
-    "https://csr.opensesame.com/completion_certificate/your_second_pdf_url",
+    ""https://csr.opensesame.com/fl/completion_certificate",
+    ""https://csr.opensesame.com/fl/completion_certificate",
     # Add more URLs as needed
 ]
 ```
