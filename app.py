@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchWindowException, WebDriverException
+
 
 # Import the list of PDF URLs
 # Maybe TODO extract from activity report? DB also works well
@@ -42,7 +44,7 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.delete_all_cookies()
 
 # Navigate to the login page
-driver.get("http://csr.opensesame.com/login")
+driver.get("http://csr.opensesame.com/user/login")
 
 # Wait  to manually log in
 input("Please log in manually, then press Enter to continue...")
@@ -56,10 +58,17 @@ downloaded_count = 0
 
 # Navigate to each PDF URL to download the file
 for pdf_url in pdf_urls:
-    print(f"Downloading: {pdf_url}")
-    driver.get(pdf_url)  # This will trigger the download
-    # time.sleep(2)  # Wait for 5 seconds to ensure the download completes
-    downloaded_count += 1
+    try:
+        print(f"Downloading: {pdf_url}")
+        driver.get(pdf_url)
+        downloaded_count += 1
+    except NoSuchWindowException:
+        print("Browser window was closed. Exiting early.")
+        break
+    except WebDriverException as e:
+        print(f"WebDriver error on {pdf_url}: {e}")
+        continue  # Skip and try the next one
+
 
 # Print the number of downloaded certificates
 print(f"Total certificates downloaded: {downloaded_count}")
